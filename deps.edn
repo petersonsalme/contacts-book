@@ -1,0 +1,5 @@
+{:paths ["src/clj" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.11.1"}
+        metosin/reitit {:mvn/version "0.5.2"}
+        http-kit/http-kit {:mvn/version "2.3.0"}}
+ :aliases {:run {:main-opts ["-m" "contacts.core"]}}}
