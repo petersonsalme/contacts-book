@@ -8,8 +8,3 @@
              :password "postgres"})
 
 (hugsql/def-db-fns "contacts.sql")
-
-(comment
-  (create-contacts-table config)
-  (get-contacts config)
-  )
