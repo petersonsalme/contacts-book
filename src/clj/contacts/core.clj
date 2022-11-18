@@ -1,6 +1,7 @@
 (ns contacts.core
   (:require [org.httpkit.server :refer [run-server]]
             [reitit.ring :as ring]
+            [ring.middleware.cors :refer [wrap-cors]]
             [reitit.ring.middleware.exception :refer [exception-middleware]]
             [reitit.ring.middleware.parameters :refer [parameters-middleware]]
             [reitit.ring.coercion :refer [coerce-exceptions-middleware
@@ -24,7 +25,10 @@
       contact-routes]]
     {:data {:coercion reitit.coercion.schema/coercion
             :muuntaja m/instance
-            :middleware [parameters-middleware
+            :middleware [[wrap-cors 
+                          :access-control-allow-origin [#"http://localhost:4200"]
+                          :access-control-allow-methods [:get :post :put :delete]]
+                         parameters-middleware
                          format-negotiate-middleware
                          format-response-middleware
                          exception-middleware
