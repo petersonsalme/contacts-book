@@ -7,4 +7,4 @@
              :user "postgres"
              :password "postgres"})
 
-(hugsql/def-db-fns "contacts.sql")
+(hugsql/def-db-fns "sql/contacts.sql")
