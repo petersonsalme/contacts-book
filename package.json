@@ -1,0 +1,19 @@
+{
+  "name": "contact-book",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/petersonsalme/contacts-book.git",
+  "author": "Peterson Salme <petersonsalme@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn build-styles && shadow-cljs watch contacts",
+    "build-styles": "tailwind build src/cljs/tailwind.css -o resources/public/css/main.css"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-refresh": "^0.14.0",
+    "shadow-cljs": "^2.20.12",
+    "tailwindcss": "^1.4.6"
+  }
+}
