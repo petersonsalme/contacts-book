@@ -15,20 +15,22 @@ SELECT * FROM contacts;
 
 -- :name get-contact-by-id :? :*
 SELECT * FROM contacts
-WHERE  id = :id;
+ WHERE id = :id;
 
 -- :name insert-contact :insert :*
-INSERT INTO contacts (first_name, last_name, email)
-VALUES (:first_name, :last_name, :email)
+INSERT INTO contacts 
+  (first_name, last_name, email)
+VALUES 
+  (:first-name, :last-name, :email)
 RETURNING id;
 
 -- :name update-contact-by-id :! :1
-UPDATE 
-SET   first_name = :first_name, 
-      last_name = :last_name, 
-      email = :email
-WHERE id = :id;
+UPDATE contacts
+   SET first_name = :first-name, 
+       last_name = :last-name, 
+       email = :email
+ WHERE id = :id;
 
 -- :name delete-contact-by-id :! :1
 DELETE FROM contacts
-WHERE  id = :id;
+ WHERE id = :id;
