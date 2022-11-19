@@ -2,7 +2,8 @@
   (:require [helix.core :refer [defnc $ <>]]
             [helix.dom :as d]
             [helix.hooks :as hooks]
-            [clojure.string :as s]))
+            [clojure.string :as s]
+            [contacts.state :refer [use-app-state]]))
 
 (def contact-form-fields
   ["first_name" "last_name" "email"])
@@ -46,8 +47,10 @@
                                                               -value)))}))
       contact-form-fields))))
 
-(defnc contact-form [{:keys [contact]}]
-  (let [[edit set-edit] (hooks/use-state false)]
+(defnc contact-form []
+  (let [[edit set-edit] (hooks/use-state false)
+        [state _] (use-app-state)
+        contact (:selected state)]
     (d/div
      (d/h1 "Contact form")
      (d/button {:on-click #(set-edit (not edit))} "toogle")
